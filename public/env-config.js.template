@@ -1,0 +1,29 @@
+// Runtime environment configuration - generated at container startup
+window._env_ = {
+  // Server Configuration
+  REACT_APP_SERVER_URL: "${REACT_APP_SERVER_URL}",
+  REACT_APP_SERVER_PORT: "${REACT_APP_SERVER_PORT}",
+  
+  // WebSocket Configuration
+  REACT_APP_WS_CLIENT_HOST: "${REACT_APP_WS_CLIENT_HOST}",
+  REACT_APP_WS_CLIENT_PORT: "${REACT_APP_WS_CLIENT_PORT}",
+  REACT_APP_WS_SERVER_HOST: "${REACT_APP_WS_SERVER_HOST}",
+  REACT_APP_WS_SERVER_PORT: "${REACT_APP_WS_SERVER_PORT}",
+  
+  // Tracker Service Ports
+  REACT_APP_TRACKER_PORT: "${REACT_APP_TRACKER_PORT}",
+  REACT_APP_TRACKER_CLIENT: "${REACT_APP_TRACKER_CLIENT}",
+  REACT_APP_TRACKER_SERVER_GO_PORT: "${REACT_APP_TRACKER_SERVER_GO_PORT}",
+  REACT_APP_TRACKER_CLIENT_GO_PORT: "${REACT_APP_TRACKER_CLIENT_GO_PORT}",
+  REACT_APP_TRACKER_ANALYTICS_PORT: "${REACT_APP_TRACKER_ANALYTICS_PORT}",
+  
+  // MQTT Configuration
+  REACT_APP_MQTT_WS_URL: "${REACT_APP_MQTT_WS_URL}",
+  
+  // Google Maps API Key
+  // IMPORTANT: Restrict this key in Google Cloud Console to your domain!
+  REACT_APP_GOOGLE_MAPS_API_KEY: "${REACT_APP_GOOGLE_MAPS_API_KEY}",
+  
+  // Build-time env (cannot be changed at runtime)
+  NODE_ENV: "production"
+};

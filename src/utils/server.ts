@@ -1,146 +1,77 @@
+import { env } from './env';
+
 // Conditional host variable based on NODE_ENV
 const getHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_SERVER_URL;
-  const portEnv = process.env.REACT_APP_SERVER_PORT;
+  const nodeEnv = env.NODE_ENV;
+  const hostEnv = env.REACT_APP_SERVER_URL;
+  const portEnv = env.REACT_APP_SERVER_PORT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] NODE_ENV: ${nodeEnv}, Server Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 const getWsClientHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_WS_CLIENT_HOST;
-  const portEnv = process.env.REACT_APP_WS_CLIENT_PORT;
+  const hostEnv = env.REACT_APP_WS_CLIENT_HOST;
+  const portEnv = env.REACT_APP_WS_CLIENT_PORT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] WS Client Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 const getWsServerHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_WS_SERVER_HOST;
-  const portEnv = process.env.REACT_APP_WS_SERVER_PORT;
+  const hostEnv = env.REACT_APP_WS_SERVER_HOST;
+  const portEnv = env.REACT_APP_WS_SERVER_PORT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] WS Server Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 const getTrackerHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_SERVER_URL;
-  const portEnv = process.env.REACT_APP_TRACKER_PORT;
+  const hostEnv = env.REACT_APP_SERVER_URL;
+  const portEnv = env.REACT_APP_TRACKER_PORT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] Tracker Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 const getTrackerClientHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_SERVER_URL;
-  const portEnv = process.env.REACT_APP_TRACKER_CLIENT;
+  const hostEnv = env.REACT_APP_SERVER_URL;
+  const portEnv = env.REACT_APP_TRACKER_CLIENT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] Tracker Client Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 const getTrackerServerGoHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_SERVER_URL;
-  const portEnv = process.env.REACT_APP_TRACKER_SERVER_GO_PORT;
+  const hostEnv = env.REACT_APP_SERVER_URL;
+  const portEnv = env.REACT_APP_TRACKER_SERVER_GO_PORT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] Tracker Server Go Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 const getTrackerClientGoHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_SERVER_URL;
-  const portEnv = process.env.REACT_APP_TRACKER_CLIENT_GO_PORT;
+  const hostEnv = env.REACT_APP_SERVER_URL;
+  const portEnv = env.REACT_APP_TRACKER_CLIENT_GO_PORT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] Tracker Client Go Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 const getTrackerAnalyticsHost = (): string => {
-  const nodeEnv = process.env.NODE_ENV || 'development';
-  const hostEnv = process.env.REACT_APP_SERVER_URL;
-  const portEnv = process.env.REACT_APP_TRACKER_ANALYTICS_PORT;
+  const hostEnv = env.REACT_APP_SERVER_URL;
+  const portEnv = env.REACT_APP_TRACKER_ANALYTICS_PORT;
 
-  console.log(`Current NODE_ENV: ${JSON.stringify(process.env)}, using host: ${hostEnv}`);
+  console.log(`[Runtime Config] Tracker Analytics Host: ${hostEnv}:${portEnv}`);
 
-  switch (nodeEnv) {
-    case 'production':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'test':
-      return `http://${hostEnv}:${portEnv}`;
-    case 'development':
-    default:
-      return `http://${hostEnv}:${portEnv}`;
-  }
+  return `http://${hostEnv}:${portEnv}`;
 };
 
 export const HOST = getHost();
@@ -151,7 +82,7 @@ export const TRACKER_CLIENT_HOST = getTrackerClientHost();
 export const TRACKER_SERVER_GO_HOST = getTrackerServerGoHost();
 export const TRACKER_CLIENT_GO_HOST = getTrackerClientGoHost();
 export const TRACKER_ANALYTICS_HOST = getTrackerAnalyticsHost()
-export const MQTT_WS_URL = process.env.REACT_APP_MQTT_WS_URL ?? 'ws://localhost:9001/mqtt';
+export const MQTT_WS_URL = env.REACT_APP_MQTT_WS_URL;
 
 // Optional: Export the function if you need to call it dynamically
 export { getHost, 

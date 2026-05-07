@@ -1,3 +1,40 @@
 #!/usr/bin/env sh
 
+# Generate runtime environment configuration from template
+# This allows users to configure the app via environment variables at container startup
+if [ -f /var/www/app.wisecodedev.com/env-config.js.template ]; then
+    echo "Generating runtime environment configuration..."
+    envsubst < /var/www/app.wisecodedev.com/env-config.js.template > /var/www/app.wisecodedev.com/env-config.js
+    echo "Runtime config generated successfully."
+else
+    echo "Warning: env-config.js.template not found. Creating fallback config."
+    # Create a fallback config with default values
+    cat > /var/www/app.wisecodedev.com/env-config.js << 'EOF'
+// Fallback runtime environment configuration
+window._env_ = {
+  REACT_APP_SERVER_URL: "localhost",
+  REACT_APP_SERVER_PORT: "8080",
+  REACT_APP_WS_CLIENT_HOST: "localhost",
+  REACT_APP_WS_CLIENT_PORT: "8080",
+  REACT_APP_WS_SERVER_HOST: "localhost",
+  REACT_APP_WS_SERVER_PORT: "8080",
+  REACT_APP_TRACKER_PORT: "8080",
+  REACT_APP_TRACKER_CLIENT: "3001",
+  REACT_APP_TRACKER_SERVER_GO_PORT: "8080",
+  REACT_APP_TRACKER_CLIENT_GO_PORT: "8081",
+  REACT_APP_TRACKER_ANALYTICS_PORT: "5050",
+  REACT_APP_MQTT_WS_URL: "ws://localhost:9001/mqtt",
+  REACT_APP_GOOGLE_MAPS_API_KEY: "",
+  NODE_ENV: "production"
+};
+EOF
+fi
+
+# Verify the config was created
+if [ -f /var/www/app.wisecodedev.com/env-config.js ]; then
+    echo "Runtime environment config contents:"
+    head -5 /var/www/app.wisecodedev.com/env-config.js
+fi
+
+# Start nginx
 nginx -g 'daemon off;'
